@@ -93,16 +93,20 @@ const restartGame = () => {
 
    return (
     <div>
-      <div className="battle-area">
-      <div className="monster-info-window">
-        <div className="monster-info">
-          <strong>らんてくん零式</strong>
-          <p>HP: {monsterHP}</p>
-        </div>
-      </div>
-        <div className="monster-area">
-          <img src="/monster.png" alt="Monster" className="monster-image" />
-        </div>
+       <div className="battle-area">
+         {monsterHP > 0 && (  // モンスターのHPが0より大きい時だけ画像を表示
+           <div className="monster-info-window">
+             <div className="monster-info">
+               <strong>らんてくん零式</strong>
+               <p>HP: {monsterHP}</p>
+             </div>
+           </div>
+         )}
+         {monsterHP > 0 && (  // モンスターのHPが0より大きい時だけ画像を表示
+          <div className="monster-area">
+            <img src="/monster.png" alt="Monster" className="monster-image" />
+          </div>
+         )}
       </div>
       <div className="bottom-area">
       <div className={`player-area ${playerHP <= 0 ? 'player-defeated' : ''}`}> 
